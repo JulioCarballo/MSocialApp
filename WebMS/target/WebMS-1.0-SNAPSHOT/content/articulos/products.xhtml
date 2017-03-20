@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<ui:composition template="/WEB-INF/plantillaMS.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:define name="bodyMS">
+        <f:metadata>
+            <f:event type="preRenderView" listener="#{beanMenu.loadInventario}"/>
+        </f:metadata>
+        <p:panel>
+            <table width="100%">
+                <tr>
+                    <td style="font-weight: bold; color: blue;">
+                        Controla la entrada y salida de tus artículos con un sistema de inventarios.
+                        <center>
+                        <p:galleria value="#{beanMenu.imgInventarios}" var="imgInv" panelWidth="650" panelHeight="350" showCaption="true">
+                            <p:graphicImage value="#{imgInv}" title="Sistema de Inventarios"/>
+                        </p:galleria>
+                        </center>
+                    </td>
+                    <td>
+                        <p align="justify" style="font-weight: bold; font-size: 18px;">Administra, controla y actualiza tus inventarios. Para que tu negocio crezca es necesario que implementes un sistema que te ahorre tiempo y dinero. La inversión que hagas en este sistema la vas a recuperar en poco tiempo, después de haber recuperado tu inversión todo lo demás serán ganancias para ti y tu negocio. <font color="red">"Solo te cuesta 100 dolares"</font>, está muy barato que esperas. El sistema de inventarios incluye código fuente completo para modificarlo a tu gusto y todos los derechos de autor, además de un manual de instalación y configuración. Compra el sistema dando clic en el botón de <font color="red">"Comprar ahora"</font>.</p>
+                        <center>
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                            <input type="hidden" name="cmd" value="_s-xclick"/>
+                            <input type="hidden" name="hosted_button_id" value="ECQFRENK9Y9RU"/>
+                            <input type="image" src="https://www.paypalobjects.com/es_XC/MX/i/btn/btn_buynowCC_LG.gif" 
+                                   border="0" name="submit" title="Compra de Sistema de Inventarios." alt="Compra de Sistema de Inventarios."/>
+                            <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1"/>
+                        </form>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </p:panel>
+    </ui:define>
+
+</ui:composition>

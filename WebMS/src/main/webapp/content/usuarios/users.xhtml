@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<ui:composition template="/WEB-INF/plantillaMS.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:define name="bodyMS">
+        <p:panel>
+            <h:form id="formUser">
+                <p:focus for="usuario"/>
+                <p:growl id="msgs" showDetail="true" />
+                <p align="justify" style="font-weight: bold; font-size: 18px; color: grey;">Mantenimiento Usuarios Acceso</p>
+                <center>
+
+                <table width="100%">
+                    <tr>
+                        <td style="font-weight: bold; size: 12px; color: green;" align="right">Usuario : </td>
+                        <td><p:inputText value="#{usuarioBean.usuario.username}" id="usuario" style="text-transform: uppercase"
+                                         disabled="#{usuarioBean.ctrCodUser}"/></td>
+                        <td style="font-weight: bold; size: 12px; color: green;" align="right">Contraseña : </td>
+                        <td><p:inputText value="#{usuarioBean.usuario.password}"/></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; size: 12px; color: green;" align="right">Nombre : </td>
+                        <td><p:inputText value="#{usuarioBean.usuario.nombre}"/></td>
+                        <td style="font-weight: bold; size: 12px; color: green;" align="right">Rol : </td>
+                        <td><h:selectOneMenu id="rolesuser" value="#{usuarioBean.usuario.roluser}" required="true">
+                                <f:selectItem itemLabel="Seleccionar" itemValue="" noSelectionOption="true" />
+                                <f:selectItem itemLabel="Administrador" itemValue="ROLE_ADMIN"/>
+                                <f:selectItem itemLabel="Usuario" itemValue="ROLE_USER"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; size: 12px; color: green;" align="right">Fecha Alta : </td>
+                        <td><p:outputLabel value="#{usuarioBean.usuario.fechaalta}" style="font-weight: bold; size: 12px; color: green;">
+                                <f:convertDateTime type="date" pattern="dd/MMM/yyyy"/>
+                            </p:outputLabel>
+                        </td>
+                        <td style="font-weight: bold; size: 12px; color: green;" align="right">Activo : </td>
+                        <td align="left">
+                            <h:selectOneMenu id="activos" value="#{usuarioBean.usuario.swactivo}" required="true">
+                                <f:selectItem itemLabel="Activo" itemValue="S"/>
+                                <f:selectItem itemLabel="Inactivo" itemValue="N"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; size: 12px; color: green;" align="right">Mod. Contraseña : </td>
+                        <td align="left">
+                            <h:selectOneMenu id="modpass" value="#{usuarioBean.usuario.swmodpass}" required="true">
+                                <f:selectItem itemLabel="Si" itemValue="S"/>
+                                <f:selectItem itemLabel="No" itemValue="N"/>
+                            </h:selectOneMenu>
+                        </td>
+                        <td style="font-weight: bold; size: 12px; color: green;" align="right">Es modificable : </td>
+                        <td align="left">
+                            <h:selectOneMenu id="modusers" value="#{usuarioBean.usuario.swmodificar}" required="true">
+                                <f:selectItem itemLabel="Si" itemValue="S"/>
+                                <f:selectItem itemLabel="No" itemValue="N"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <p:separator />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" align="center">
+                            <p:commandButton value="Guardar" actionListener="#{usuarioBean.altaUsuario()}" update=":formUser"
+                                disabled="#{usuarioBean.ctrCodUser}" />
+                            <p:commandButton value="Actualizar" actionListener="#{usuarioBean.modUsuario()}" update=":formUser"/>
+                            <p:commandButton value="Eliminar" actionListener="#{usuarioBean.borrarUsuario()}" update=":formUser"/>
+                        </td>
+                    </tr>
+                </table>
+                <p:separator />
+                <p:dataTable id="usuariosDT" var="user" value="#{usuarioBean.listaUsuarios}" selectionMode="single" selection="#{usuarioBean.userSelec}" rowKey="#{user.username}"
+                             rows="10" paginator="true" 
+                    paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+                    <f:facet name="header">Lista usuarios</f:facet>
+                    <p:ajax event="rowSelect" listener="#{usuarioBean.onRowSelect}" update=":formUser" />
+                    <p:column headerText="Usuario">
+                        <h:outputText value="#{user.username}" />
+                    </p:column>
+                    <p:column headerText="Contraseña" exportable="false">
+                        <h:outputText value="#{user.password}" />
+                    </p:column>
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{user.nombre}" />
+                    </p:column>
+                    <p:column headerText="Rol">
+                        <h:outputText value="#{user.roluser}" />
+                    </p:column>
+                    <p:column headerText="Fecha Alta">
+                        <h:outputText value="#{user.fechaalta}">
+                            <f:convertDateTime type="date" pattern="dd/MMM/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="Activo">
+                        <h:outputText value="#{user.swactivo}" />
+                    </p:column>
+                </p:dataTable>
+
+                <p:panel>
+                    <h:commandLink>
+                        <p:graphicImage library="images" name="excel.png" width="26"/>
+                        <p:dataExporter type="xls" target="usuariosDT" fileName="list" postProcessor="#{usuarioBean.postProcessXLS}" />
+                    </h:commandLink>
+
+                    <h:commandLink>
+                        <h:graphicImage library="images" name="pdf.png" width="26"/>
+                        <p:dataExporter type="pdf" target="usuariosDT" fileName="list" preProcessor="#{usuarioBean.preProcessPDF}"  encoding="iso-8859-1" />
+                    </h:commandLink>
+                </p:panel>
+                
+            </center>
+            </h:form>
+        </p:panel>
+        
+    </ui:define>
+
+</ui:composition>
