@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jdbc-data-source xmlns="http://xmlns.oracle.com/weblogic/jdbc-data-source">
-  <name>DataSourceMS</name>
+  <name>DataSourceSIS</name>
   <jdbc-driver-params>
     <url>jdbc:oracle:thin:@localhost:1521:XE</url>
     <driver-name>oracle.jdbc.OracleDriver</driver-name>
@@ -16,6 +16,6 @@
     </properties>
   </jdbc-driver-params>
   <jdbc-data-source-params>
-    <jndi-name>DataSourceMS</jndi-name>
+    <jndi-name>DataSourceSIS</jndi-name>
   </jdbc-data-source-params>
 </jdbc-data-source>
