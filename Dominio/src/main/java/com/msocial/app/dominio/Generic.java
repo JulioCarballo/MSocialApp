@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author SergioRios
+ * @author Julio Carballo
  */
 public class Generic implements Serializable {
     private Boolean status;
