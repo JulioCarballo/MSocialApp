@@ -18,7 +18,7 @@
         <intercept-url pattern="/content/welcome.ms" access="ROLE_ADMIN, ROLE_USER"/>
         <intercept-url pattern="/content/alumnos/**" access="ROLE_ADMIN, ROLE_USER"/>
         <intercept-url pattern="/content/articulos/**" access="ROLE_ADMIN, ROLE_USER"/>
-        <intercept-url pattern="/content/usuarios/**" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/content/maestros/**" access="ROLE_ADMIN"/>
         
         <form-login 
             login-page="/login.ms"

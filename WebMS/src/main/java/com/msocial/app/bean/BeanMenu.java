@@ -90,7 +90,7 @@ public class BeanMenu implements Serializable {
     public String disabledUsuarios() {
         resetMenu();
         setDisUsuarios(true);
-        return "/content/usuarios/users?faces-redirect=true";
+        return "/content/maestros/users?faces-redirect=true";
     }
     
     public String disabledAlumnos() {
@@ -108,7 +108,7 @@ public class BeanMenu implements Serializable {
     public String disabledDelegaciones() {
         resetMenu();
         setDisDelegaciones(true);
-        return "/content/usuarios/delegs?faces-redirect=true";
+        return "/content/maestros/delegs?faces-redirect=true";
     }
     
     public Date getFechaActual() {
