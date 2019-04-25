@@ -12,52 +12,18 @@
                     disabled="#{beanMenu.disInicio}" action="#{beanMenu.disabledInicio}"/>
     </p:submenu>
 -->
-    <p:submenu label="Contabilidad">
-        <p:submenu label="Capturas">
-            <p:menuitem value="Captura Asientos" ajax="false" style="font-weight: bold; font-size: 14px;" />
-            <p:menuitem value="Captura Asientos Mayor" ajax="false" style="font-weight: bold; font-size: 14px;" />
-            <p:menuitem value="Mod. Asientos Mayor" ajax="false" style="font-weight: bold; font-size: 14px;" />
-        </p:submenu>
-        <p:submenu label="Mantenimientos">
-            <p:menuitem value="Empresas" ajax="false" style="font-weight: bold; font-size: 14px;" />
-            <p:menuitem value="Centros" ajax="false" style="font-weight: bold; font-size: 14px;" />
-            <p:menuitem value="Ejercicios" ajax="false" style="font-weight: bold; font-size: 14px;" />
-            <p:menuitem value="Fechas Control" ajax="false" style="font-weight: bold; font-size: 14px;" />
-            <p:menuitem value="Ctas. Sumarias" ajax="false" style="font-weight: bold; font-size: 14px;" />
-            <p:menuitem value="Ctas. Imputacion" ajax="false" style="font-weight: bold; font-size: 14px;" />
-            <p:menuitem value="Provincias" ajax="false" style="font-weight: bold; font-size: 14px;" />
-            <p:menuitem value="Divisas" ajax="false" style="font-weight: bold; font-size: 14px;" />
-            <p:menuitem value="Datos Fiscales" ajax="false" style="font-weight: bold; font-size: 14px;" />
-            <p:menuitem value="Paises" ajax="false" style="font-weight: bold; font-size: 14px;" />
-            <p:menuitem value="Cot. Divisas" ajax="false" style="font-weight: bold; font-size: 14px;" />
-        </p:submenu>
-    </p:submenu>
-    <p:submenu label="Tesoreria">
-        <p:menuitem value="Delete" actionListener="#{menuView.delete}"  ajax="false" icon="ui-icon-close"/>
-    </p:submenu>
-    <p:submenu label="Clientes" >
-        <p:menuitem value="Delete" actionListener="#{menuView.delete}"  ajax="false" icon="ui-icon-close"/>
-    </p:submenu>
-    <p:submenu label="Proveedores">
-        <p:menuitem value="Delete" actionListener="#{menuView.delete}"  ajax="false" icon="ui-icon-close"/>
-    </p:submenu>
-    <p:submenu label="Fiscal">
-        <p:menuitem value="Delete" actionListener="#{menuView.delete}"  ajax="false" icon="ui-icon-close"/>
-    </p:submenu>
-    <p:submenu label="Prof. Liberales">
-        <p:menuitem value="Delete" actionListener="#{menuView.delete}"  ajax="false" icon="ui-icon-close"/>
-    </p:submenu>
-    <p:submenu label="Interfaces">
-        <p:menuitem value="Delete" actionListener="#{menuView.delete}"  ajax="false" icon="ui-icon-close"/>
-    </p:submenu>
-    <p:submenu label="Administrador">
+    <p:submenu label="Sistemas">
         <p:submenu label="Parametros">
             <p:menuitem value="Param. Cont." ajax="false" style="font-weight: bold; font-size: 14px;" />
         </p:submenu>
-        <p:menuitem value="Usuarios Acceso" ajax="false" style="font-weight: bold; font-size: 14px;"
-                    disabled="#{beanMenu.disUsuarios}" action="#{beanMenu.disabledUsuarios}"/>
-        <p:menuitem value="Delegaciones" ajax="false" style="font-weight: bold; font-size: 14px;"
-                    disabled="#{beanMenu.disDelegaciones}" action="#{beanMenu.disabledDelegaciones}"/>
+        <p:submenu label="Control Usuarios">
+            <p:menuitem value="Usuarios Acceso" ajax="false" style="font-weight: bold; font-size: 14px;"
+                        disabled="#{beanMenu.disUsuarios}" action="#{beanMenu.disabledUsuarios}"/>
+        </p:submenu>
+        <p:submenu label="Maestros">
+            <p:menuitem value="Delegaciones" ajax="false" style="font-weight: bold; font-size: 14px;"
+                        disabled="#{beanMenu.disDelegaciones}" action="#{beanMenu.disabledDelegaciones}"/>
+        </p:submenu>
     </p:submenu>
 </p:panelMenu>
     

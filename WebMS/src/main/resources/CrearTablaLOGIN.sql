@@ -47,6 +47,7 @@ SET DEFINE OFF;
 ------------------------------------------------------------------------
 --  Creación del usuario ADMIN para poder acceder a la aplicación
 ------------------------------------------------------------------------
+-- La contraseña, aunque esté encriptada es 'admin'
 
 Insert into SISTEMASDB.LOGIN (USUARIO,PASSWORD,NOMBRE,ROLUSER,FECHAALTA,SWACTIVO,SWMODPASS,SWMODIFICAR,URL) 
 values ('ADMIN','21232f297a57a5a743894a0e4a801fc3','Administrador','ROLE_ADMIN',to_date(SYSDATE,'DD/MM/RR'),'S','S','N',null);
